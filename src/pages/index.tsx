@@ -171,7 +171,7 @@ const IndexPage: React.FC<PageProps> = () => {
               >
                 {link.text}
               </a>
-              {link.badge && (
+              {Boolean(link.badge) && (
                 <span style={badgeStyle} aria-label="New Badge">
                   NEW!
                 </span>
