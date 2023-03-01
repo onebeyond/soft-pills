@@ -17,7 +17,8 @@
     "clean": "gatsby clean",
     "eslint": "eslint --ext .tsx src/",
     "eslint:fix": "eslint  --fix --ext .tsx src/",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.6",
@@ -46,6 +47,7 @@
     "eslint-plugin-n": "^15.0.0",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.32.2",
-    "typescript": "*"
+    "typescript": "*",
+    "husky": "^8.0.0"
   }
 }
