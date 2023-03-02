@@ -1,0 +1,6 @@
+content
+public
+node_modules
+.cache
+_dev
+cypress

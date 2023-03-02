@@ -1,3 +1,3 @@
-import PillCard from "./PillCard";
+import PillCard from './PillCard';
 
 export default PillCard;

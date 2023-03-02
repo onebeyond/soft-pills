@@ -1,41 +1,44 @@
-import * as React from "react"
-import {useMemo} from 'react';
-import {Link, graphql} from "gatsby"
+import React, { useMemo } from 'react';
+import { List, ListItem, Typography } from '@mui/material';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import PillCard from '../components/PillCard';
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import PillCard from "../components/PillCard"
-
-const BlogIndex = ({data, location}) => {
-  console.log('data', data);
-  const siteTitle = data.site.siteMetadata ?. title || `Title`
-  // const posts = data.allMarkdownRemark.nodes
+function BlogIndex({ data, location }) {
+  const siteTitle = data.site.siteMetadata?.title || 'Title';
   const pills = data.allMarkdownRemark.edges;
-  console.log('pills', pills)
 
   const renderedPills = useMemo(() => {
     if (pills.length === 0) {
-      return (<p>
-        No pills found.
-      </p>)
-    } else {
-      return pills.map((pill, i) => {
-        console.log('pill', pill);
-        return (<li>
-          <PillCard title={
-            pill.node.frontmatter.title
-          }/>
-        </li>)
-      })
+      return (
+        <Typography variant="h5">
+          No pills found.
+        </Typography>
+      );
     }
-  }, [pills])
+    return pills.map((pill) => {
+      const { node: { frontmatter: { title, description } } } = pill;
+      return (
+        <ListItem key={`li-${title}`}>
+          <PillCard
+            title={title}
+            description={description}
+            key={`card-${title}`}
+          />
+        </ListItem>
+      );
+    });
+  }, [pills]);
 
-
-  return (<Layout location={location}
-    title={siteTitle}>
-    <ul> {renderedPills} </ul>
-  </Layout>);
+  return (
+    <Layout
+      location={location}
+      title={siteTitle}
+    >
+      <List>{renderedPills}</List>
+    </Layout>
+  );
 
   // return (<Layout location={location}
   // title={siteTitle}> {/* <Bio/> */}
@@ -77,17 +80,18 @@ const BlogIndex = ({data, location}) => {
   // </Layout>)
 }
 
-export default BlogIndex
+export default BlogIndex;
 
 /**
  * Head export to define metadata for the page
  *
  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
  */
-export const Head = () => <Seo title="All posts"/>
+export function Head() {
+  return <Seo title="All posts" />;
+}
 
-
-export const pageQuery2 = graphql `
+export const pageQuery2 = graphql`
 query {
     site {
       siteMetadata {
@@ -111,27 +115,3 @@ query {
     }
 }
 `;
-
-// export const pageQuery = graphql `
-// {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allMarkdownRemark(
-//       sort: { frontmatter: { date: DESC } }) {
-//       nodes {
-//         excerpt
-//         fields {
-//           slug
-//         }
-//         frontmatter {
-//           date(formatString: "MMMM DD, YYYY")
-//           title
-//           description
-//         }
-//       }
-//     }
-// }
-// `
