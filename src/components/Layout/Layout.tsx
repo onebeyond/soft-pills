@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 
 function Layout({ location, title, children }) {
-  const rootPath = `${__PATH_PREFIX__}/`;
+  const rootPath = `${__PATH_PREFIX__ || ''}/`;
   const isRootPath = location.pathname === rootPath;
   let header;
 

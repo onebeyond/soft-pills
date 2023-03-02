@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
 
-import Bio from '../components/bio';
-import Layout from '../components/layout';
-import Seo from '../components/seo';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 function BlogPostTemplate({
   data: {
@@ -29,9 +28,7 @@ function BlogPostTemplate({
           itemProp="articleBody"
         />
         <hr />
-        <footer>
-          <Bio />
-        </footer>
+        <footer />
       </article>
       <nav className="blog-post-nav">
         <ul
@@ -69,7 +66,7 @@ function BlogPostTemplate({
 
 export function Head({ data: { markdownRemark: post } }) {
   return (
-    <Seo
+    <SEO
       title={post.frontmatter.title}
       description={post.frontmatter.description || post.excerpt}
     />

@@ -16,9 +16,9 @@ module.exports = {
     },
     description: '🤝 A list of experiences and reflections in the form of small pills, on skills to improve in management positions.',
     siteUrl: 'https://gatsbystarterblogsource.gatsbyjs.io/',
-    social: {
-      twitter: 'kylemathews',
-    },
+    // social: {
+    //   twitter: 'kylemathews',
+    // },
   },
   plugins: [
     'gatsby-plugin-image',
