@@ -6,7 +6,7 @@
  */
 import React from 'react';
 import Helmet from 'react-helmet';
-import { PropTypes } from '@mui/material';
+import PropTypes from 'prop-types'; // ES6
 import { useStaticQuery, graphql } from 'gatsby';
 
 const SEO = ({
