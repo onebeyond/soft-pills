@@ -36,9 +36,12 @@ function BlogIndex({ data, location }) {
       location={location}
       title={siteTitle}
     >
-      <SEO>
-        <List>{renderedPills}</List>
-      </SEO>
+      <SEO
+        title="soft-pills"
+        description="🤝 A list of experiences and reflections in the form of small pills, about skills to improve in management positions."
+        keywords={['soft-skills', 'management', 'learning']}
+      />
+      <List>{renderedPills}</List>
     </Layout>
   );
 }
