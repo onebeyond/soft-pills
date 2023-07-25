@@ -2,6 +2,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
+    "husky": "^8.0.3",
     "vitepress": "^1.0.0-beta.5"
   },
   "scripts": {
