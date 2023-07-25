@@ -7,7 +7,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev docs --port 8080",
-    "docs:build": "npx vitepress build docs",
+    "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "prepare": "husky install"
   },

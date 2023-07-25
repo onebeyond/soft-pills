@@ -37,15 +37,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
-      - name: Install VitePress
-        run: yarn global add vitepress@^1.0.0-beta.5
+          cache: npm
+      # - name: Install VitePress
+      #   run: yarn global add vitepress@^1.0.0-beta.5
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Install dependencies
-        run: yarn install --production --frozen-lockfile
+        # run: yarn install --production --frozen-lockfile
+        run: npm ci
       - name: Build with VitePress
-        run: yarn docs:build 
+        run: npm run docs:build 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
