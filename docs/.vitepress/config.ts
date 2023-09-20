@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Soft-Pills",
+  base: "/soft-pills/",
   description: "🤝 A list of experiences and reflections in the form of small pills, about skills to improve in management positions.",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
