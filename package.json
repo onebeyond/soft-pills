@@ -15,9 +15,6 @@
   "description": "🤝 A list of experiences and reflections in the form of small pills, about skills to improve in management positions.",
   "version": "1.0.0",
   "main": "index.js",
-  "directories": {
-    "doc": "docs"
-  },
   "dependencies": {
     "algoliasearch": "^4.19.0",
     "ansi-sequence-parser": "^1.1.0",
