@@ -3,9 +3,12 @@
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
     "husky": "^8.0.3",
+    "inquirer": "^8.2.5",
     "vitepress": "^1.0.0-beta.5"
   },
   "scripts": {
+    "create:pill": "node ./scripts/createPill.js",
+    "remove:pill": "node ./scripts/removePill.js",
     "docs:dev": "vitepress dev docs --port 8080",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
