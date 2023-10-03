@@ -11,8 +11,8 @@ hero:
       text: How to add a pill
       link: /how-to-add-a-pill
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Pill Example
+      link: pills/pill-example
 
 features:
   - title: Feature A
