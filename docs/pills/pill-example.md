@@ -2,48 +2,21 @@
 outline: deep
 ---
 
-# Runtime API Examples
+# A soft-skill pill example
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+### 1. Context
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus justo dapibus scelerisque elementum. Phasellus non lacus posuere, consequat nisi sed, vestibulum elit. Quisque non sodales ante. Phasellus id orci eget sapien eleifend sodales. Nullam porta pulvinar posuere. Sed ut orci placerat, fringilla leo quis, rhoncus risus. In odio enim, elementum ac est in, mattis accumsan ex. Sed tincidunt magna sit amet nibh vestibulum vehicula. Etiam et nibh sit amet lectus iaculis pharetra.
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+
+### 2. Actions
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus justo dapibus scelerisque elementum. Phasellus non lacus posuere, consequat nisi sed, vestibulum elit. Quisque non sodales ante. Phasellus id orci eget sapien eleifend sodales. Nullam porta pulvinar posuere. Sed ut orci placerat, fringilla leo quis, rhoncus risus. In odio enim, elementum ac est in, mattis accumsan ex. Sed tincidunt magna sit amet nibh vestibulum vehicula. Etiam et nibh sit amet lectus iaculis pharetra.
+
+
+### 3. Result
+<details>
+<summary>see result</summary>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus justo dapibus scelerisque elementum. Phasellus non lacus posuere, consequat nisi sed, vestibulum elit. Quisque non sodales ante. Phasellus id orci eget sapien eleifend sodales. Nullam porta pulvinar posuere. Sed ut orci placerat, fringilla leo quis, rhoncus risus. In odio enim, elementum ac est in, mattis accumsan ex. Sed tincidunt magna sit amet nibh vestibulum vehicula. Etiam et nibh sit amet lectus iaculis pharetra.
+</details>
+
 
 ```md
-<script setup>
-import { useData } from 'vitepress'
-
-const { theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-```
-
-<script setup>
-import { useData } from 'vitepress'
-
-const { site, theme, page, frontmatter } = useData()
-</script>
-
-## Results
-
-### Theme Data
-<pre>{{ theme }}</pre>
-
-### Page Data
-<pre>{{ page }}</pre>
-
-### Page Frontmatter
-<pre>{{ frontmatter }}</pre>
-
-## More
-
-Check out the documentation for the [full list of runtime APIs](https://vitepress.dev/reference/runtime-api#usedata).
