@@ -5,9 +5,16 @@ sidebar: false
 
 # How to add a pill:
 
-This page demonstrates usage of some of the runtime APIs provided by VitePress.
+If you want to add a pill, you have to follow these steps:
 
-The main `useData()` API can be used to access site, theme, and page data for the current page. It works in both `.md` and `.vue` files:
+1. Download the repo [here](https://github.com/onebeyond/soft-pills)
+2. Install dependencies using npm (there is a lockfile)
+3. Launch the script `npm run create:pill`
+4. Follow the instructions
+
+![Alt text](../assets/addPill.png "a title")
+
+
 
 ```md
 <script setup>
