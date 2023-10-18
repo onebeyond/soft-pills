@@ -42,7 +42,20 @@ const createPill = ({ title, author, keywords }) => {
   title:  "${title}"
   description: "ADD A PILL DESCRIPTION HERE"
   keywords: [${formatArrayContent(keywords)}]
----`;
+---
+# ${title}
+  ### 1. Context
+  Lorem ipsum
+
+  ### 2. Actions
+  Lorem ipsum 
+
+  ### 3. Result
+  <details>
+  <summary>see result</summary>
+  Lorem ipsum 
+  </details>
+`;
   const fileName = `${dir}/${kebabCase(title)}.md`;
 
   fs.mkdirSync(dir);

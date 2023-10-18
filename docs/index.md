@@ -12,7 +12,7 @@ hero:
       link: /how-to-add-a-pill
     - theme: alt
       text: Pill Example
-      link: pills/pill-example
+      link: /pill-example
 
 features:
   - title: Feature A
