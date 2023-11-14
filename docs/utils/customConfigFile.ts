@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require("fs");
 
 interface ISideBarItem {
   text: string;
@@ -7,22 +7,28 @@ interface ISideBarItem {
 
 export const getSideBarItems = (): ISideBarItem[] => {
   let output: ISideBarItem[] = [];
-  fs.readdirSync('./docs/pills').forEach((file: string) => {
+  fs.readdirSync("./docs/pills").forEach((file: string) => {
+    const textName = file
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
     output.push({
-      text: file,
+      text: textName,
       link: `/pills/${file}/${file}`,
     });
   });
+
+  console.log({ output });
   return output;
-}
+};
 
 export const getMainPillsLink = (): string => {
-  let link = '';
-  fs.readdirSync('./docs/pills').forEach((file: string, index: number) => {
-    if(index !== 0) {
-      return
+  let link = "";
+  fs.readdirSync("./docs/pills").forEach((file: string, index: number) => {
+    if (index !== 0) {
+      return;
     }
-    link = `/pills/${file}/${file}`
+    link = `/pills/${file}/${file}`;
   });
   return link;
-}
+};
