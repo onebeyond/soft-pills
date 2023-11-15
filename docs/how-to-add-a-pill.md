@@ -3,8 +3,8 @@ outline: deep
 sidebar: false
 next: false
 prev:
-  text: 'Home'
-  link: '/index'
+  text: "Home"
+  link: "/index"
 ---
 
 # How to add a pill:
@@ -16,16 +16,14 @@ If you want to **add** a pill, you have to follow these steps:
 3. Launch the script `npm run create:pill`
 4. Follow the instructions:
 
-![Pic showing how to add a pill](../assets/addPill.png "Adding a new pill")
+![Pic showing how to add a pill](./assets/addPill.png "Adding a new pill")
 
 <br>
 <br>
 
 In case you want to **remove** any pill you can launch this other script
-`npm run remove:pill` 
+`npm run remove:pill`
 
 And also follow the instructions:
 
-![Pic showing how to remove a pill](../assets/removePill.png "Removing a pill")
-
-
+![Pic showing how to remove a pill](./assets/removePill.png "Removing a pill")

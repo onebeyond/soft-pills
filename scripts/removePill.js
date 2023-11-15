@@ -67,7 +67,6 @@ const start = async () => {
   inquirer
     .prompt(STEPS)
     .then((answers) => {
-      console.log({ answers });
       if (!answers.confirmation) {
         console.log("Remove process cancelled");
         return;
