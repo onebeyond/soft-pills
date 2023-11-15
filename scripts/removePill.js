@@ -1,14 +1,38 @@
 /* eslint-disable no-console */
 // eslint-disable-next-line import/no-extraneous-dependencies
-const inquirer = require('inquirer');
-const fs = require('fs');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const path = require("path");
+const { promisify } = require("util");
+const { list } = require("postcss");
 
-const STEPS = [
-  { message: "What's pill name which you want to remove?", name: 'title', default: 'remove-pill' },
-  {
-    message: 'Are you sure?', name: 'confirmation', type: 'confirm',
-  },
-];
+const readdir = promisify(require("fs").readdir);
+const stat = promisify(require("fs").stat);
+
+const getPathContent = async () => {
+  const pathContent = [];
+  const newPath = path.join(__dirname, "../docs/pills");
+  let files = await readdir(newPath);
+  let pathName = newPath;
+  const absPath = path.resolve(pathName);
+
+  for (let file of files) {
+    try {
+      let stats = await stat(absPath + "/" + file);
+      if (stats.isFile()) {
+        pathContent.push(file.substring(0, file.lastIndexOf(".")));
+      } else if (stats.isDirectory()) {
+        pathContent.push(file);
+      }
+    } catch (err) {
+      throw new Error(
+        `❌ Something bad happened while getting the list of Pills: ${err}`
+      );
+    }
+  }
+
+  return pathContent;
+};
 
 const removePill = (title) => {
   const path = `./docs/pills/${title}`;
@@ -20,28 +44,46 @@ const removePill = (title) => {
     if (err) {
       throw err;
     }
-    console.log('-----------------');
+    console.log("-----------------");
     console.log(`Pill ${title} removed correctly`);
   });
 };
 
-const start = () => {
+const start = async () => {
+  const STEPS = [
+    {
+      type: "list",
+      name: "title",
+      message: "Which file would you like to delete?",
+      choices: await getPathContent(),
+    },
+    {
+      message: "Are you sure?",
+      name: "confirmation",
+      type: "confirm",
+    },
+  ];
+
   inquirer
     .prompt(STEPS)
     .then((answers) => {
+      console.log({ answers });
       if (!answers.confirmation) {
-        console.log('Remove process cancelled');
+        console.log("Remove process cancelled");
         return;
       }
       removePill(answers.title);
     })
     .catch((error) => {
       if (error.isTtyError) {
-        throw new Error("Prompt couldn't be rendered in the current environment");
-      } if (error) {
+        throw new Error(
+          "Prompt couldn't be rendered in the current environment"
+        );
+      }
+      if (error) {
         throw error;
       } else {
-        throw new Error('Something else went wrong');
+        throw new Error("Something else went wrong");
       }
     });
 };

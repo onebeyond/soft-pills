@@ -12,14 +12,13 @@ hero:
       link: /how-to-add-a-pill
     - theme: alt
       text: Pill Example
-      link: /pill-example
+      link: /pills/maintaining-team-spirits/maintaining-team-spirits
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Context
+    details: What soft skill related issues are we solving?
+  - title: Actions
+    details: What actions or steps we can take to solve these issues?
+  - title: Result
+    details: How are we improving things by taking these actions?
 ---
-
