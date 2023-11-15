@@ -20,10 +20,11 @@ Games such as skribbl, geoguessr, sporcle, kahoot, garticphone and contexto.
 
 ### 3. Result
 
-Teams feel like there is at least one meeting they really look forward to in order to take a break from the daily stresses.
+<details>
+<summary>see result</summary>
 
-They have a moment to have fun with their colleauges and maybe get in touch with their competitive side.
-
-Not every meeting needs to be serious and with this, the team feels closer than than they do before.
-
-Full credit goes to Don Baumann for implementing this as a newcomer to the team.
+- Teams feel like there is at least one meeting they really look forward to in order to take a break from the daily stresses.
+- They have a moment to have fun with their colleauges and maybe get in touch with their competitive side.
+- Not every meeting needs to be serious and with this, the team feels closer than than they do before.
+- Full credit goes to Don Baumann for implementing this as a newcomer to the team.
+</details>

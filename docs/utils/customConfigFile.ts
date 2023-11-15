@@ -17,8 +17,6 @@ export const getSideBarItems = (): ISideBarItem[] => {
       link: `/pills/${file}/${file}`,
     });
   });
-
-  console.log({ output });
   return output;
 };
 
