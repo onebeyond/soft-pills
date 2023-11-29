@@ -19,8 +19,14 @@ If you want to **add** a pill, you have to follow these steps:
 
 ![Pic showing how to add a pill](./assets/addPill.png "Adding a new pill")
 
+
+6. Once the pill was done, please, create a pull request filling the template 😉
+
+
 <br>
 <br>
+
+# How to remove a pill:
 
 In case you want to **remove** any pill you can launch this other script
 `npm run remove:pill`
