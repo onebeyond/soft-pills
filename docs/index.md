@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Soft-Pills"
-  text: "🤝 A list of experiences and reflections in the form of small pills, about skills to improve in management positions."
-  tagline: My great project tagline
+  text: "🤝 A list of experiences and reflections in the form of small pills"
+  tagline: Improve your soft skills.
   actions:
     - theme: brand
       text: How to add a pill
