@@ -1,5 +1,5 @@
 // index.js
-const fs = require('fs');
+const fs = require('fs').promises;
 const path = require('path');
 const algoliasearch = require('algoliasearch');
 
@@ -12,48 +12,38 @@ const client = algoliasearch(ALGOLIA_APP_ID, ALGOLIA_API_KEY);
 const index = client.initIndex(ALGOLIA_INDEX_NAME);
 
 // Directorio que contiene tus archivos .md
-const contentDir = './docs/pills'
+const contentDir = './docs/pills';
 
 const checkDirectories = async () => {
-  // const records = [];
-  const directories = await fs.readdirSync(contentDir);
-  const records = await directories.map(async (dir) => {
-    const currentDir = `${contentDir}/${dir}`;
-    const files = await fs.readdirSync(currentDir);
+  const records = []
+  try {
+    const directories = await fs.readdir(contentDir);
 
-    const foo = files.map(async (file) => {
-      const content = await fs.readFileSync(path.join(currentDir, file), 'utf-8');
-      console.log('file', file)
-      return{
-        objectID: file,
-        content,
-      };
-    })
-    return foo
-  })
+    for (const dir of directories) {
+      const currentDir = path.join(contentDir, dir);
+      const files = await fs.readdir(currentDir);
 
-  // const records = await directories.map(async (directory) => {
-  //   const currentDir = `${contentDir}/${directory}`
-  //   const files = await fs.readdirSync(currentDir);
-  //   const output = await files.map(async (file) => {
-  //     const content = await fs.readFileSync(path.join(currentDir, file), 'utf-8');
-  //     return {
-  //       objectID: file,
-  //       content,
-  //     };
-  //   });
-  //   console.log('output 2', output)
-  //   return output
-  // })
-  // const records = await directories.forEach(async (directory) => {
-  //   await indexFiles(directory)
-  // })
-  Promise.all(records).then((values) => {
-    console.log('records', records)
-    console.log('values', values)
-  })  
+      for (const file of files) {
+        try {
+          const filePath = path.join(currentDir, file);
+          const content = await fs.readFile(filePath, 'utf-8');
+          records.push({
+            objectID: filePath,
+            content: content,
+          });
+        } catch (readError) {
+          console.error(`Error reading file ${file} in directory ${dir}:`, readError);
+        }
+      }
+    }
 
-}
+    console.log({records})
+
+  
+  } catch (error) {
+    console.error('Error accessing directories:', error);
+  }
+};
 
 const indexFiles = async (directory) => {
   const currentDir = `${contentDir}/${directory}`
@@ -112,4 +102,5 @@ const indexFiles = async (directory) => {
 
 // Ejecuta la función de indexación
 // indexFiles();
-checkDirectories()
+
+checkDirectories();
