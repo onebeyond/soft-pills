@@ -14,7 +14,7 @@ const index = client.initIndex(ALGOLIA_INDEX_NAME);
 // Directorio que contiene tus archivos .md
 const contentDir = './docs/pills';
 
-const checkDirectories = async () => {
+const getRecordsFromDirectories = async () => {
   const records = []
   try {
     const directories = await fs.readdir(contentDir);
@@ -37,70 +37,26 @@ const checkDirectories = async () => {
       }
     }
 
-    console.log({records})
-
-  
+    return records
   } catch (error) {
     console.error('Error accessing directories:', error);
   }
 };
 
-const indexFiles = async (directory) => {
-  const currentDir = `${contentDir}/${directory}`
-  // console.log('DIRECTORY', directory)
-  const files = await fs.readdirSync(currentDir);
-  // console.log('FILES', files) 
-  
-  const records = await files.map(async (file) => {
-    const content = await fs.readFileSync(path.join(currentDir, file), 'utf-8');
-    return {
-      objectID: file,
-      content,
-    };
-  });
-
-  console.log('records 1', records)
-  return await records
-
-  // try {
-  //   // Envia los registros a Algolia
-  //   console.log(records)
-  //   await index.saveObjects(records);
-  //   console.log('Indexación completada.', `${files}` in `${contentDir}/${directory}`);
-  // } catch (error) {
-  //   console.error('Error al indexar:', error);
-  // }
-}
 
 // // Función para leer y enviar archivos a Algolia
-// const indexFiles = async () => {
+const indexFiles = async () => {
 
-
-//   console.log(directories)
-
-  // const files = fs.readdirSync(contentDir);
-  // console.log('----------------')
-  // console.log(files)
-  // console.log('----------------')
-
-  // const records = files.map((file) => {
-  //   const content = fs.readFileSync(path.join(contentDir, file), 'utf-8');
-  //   return {
-  //     objectID: file,
-  //     content,
-  //   };
-  // });
-
-  // try {
-  //   // Envia los registros a Algolia
-  //   await index.saveObjects(records);
-  //   console.log('Indexación completada.');
-  // } catch (error) {
-  //   console.error('Error al indexar:', error);
-  // }
-// };
+  try {
+    const recordsToIndex = await getRecordsFromDirectories()
+    // Envia los registros a Algolia
+    const result = await index.saveObjects(recordsToIndex);
+    console.log('Indexación completada.', result);
+  } catch (error) {
+    console.error('Error al indexar:', error);
+  }
+};
 
 // Ejecuta la función de indexación
-// indexFiles();
+indexFiles();
 
-checkDirectories();
