@@ -14,7 +14,7 @@ export default defineConfig({
       options: {
         appId: "YEIZQWKHWT",
         apiKey: "532398c5e31ddd5a0f294cd1c39c3ac8",
-        indexName: "pill_name",
+        indexName: "title",
       },
     },
     nav: [
