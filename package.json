@@ -9,9 +9,10 @@
   "scripts": {
     "create:pill": "node ./scripts/createPill.js",
     "remove:pill": "node ./scripts/removePill.js",
-    "docs:dev": "vitepress dev docs --port 8080",
-    "docs:build": "vitepress build docs",
+    "docs:dev": "source ~/.nvm/nvm.sh && nvm use && vitepress dev docs --port 8080",
+    "docs:build": "source ~/.nvm/nvm.sh && nvm use && vitepress build docs",
     "docs:preview": "vitepress preview docs",
+    "index": "node ./scripts/indexation.js",
     "prepare": "husky install"
   },
   "name": "soft-pills",
@@ -19,7 +20,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
-    "algoliasearch": "^4.19.0",
+    "@docsearch/react": "3",
+    "algoliasearch": "^4.22.0",
     "ansi-sequence-parser": "^1.1.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "csstype": "^3.1.2",
